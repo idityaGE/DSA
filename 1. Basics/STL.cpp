@@ -353,60 +353,60 @@ int main() {
 
   // **SOME_EXTRA**
 
-    // **Sorting**
-    // The `sort` function is used to sort elements in a range.
-    // By default, it sorts in increasing order.
+  // **Sorting**
+  // The `sort` function is used to sort elements in a range.
+  // By default, it sorts in increasing order.
 
-    vector<int> v8 = {4, 2, 5, 3, 1};
+  vector<int> v8 = {4, 2, 5, 3, 1};
 
-    sort(v8.begin(), v8.end());  // Sort in increasing order: {1, 2, 3, 4, 5}
+  sort(v8.begin(), v8.end());  // Sort in increasing order: {1, 2, 3, 4, 5}
 
-    sort(v8.begin(), v8.end(), greater<int>());  // Sort in decreasing order: {5, 4, 3, 2, 1}
+  sort(v8.begin(), v8.end(), greater<int>());  // Sort in decreasing order: {5, 4, 3, 2, 1}
 
-    sort(v8.rbegin(), v8.rend());  // Another way to sort in decreasing order: {5, 4, 3, 2, 1}
-    // `rbegin()` and `rend()` reverse the range.
+  sort(v8.rbegin(), v8.rend());  // Another way to sort in decreasing order: {5, 4, 3, 2, 1}
+  // `rbegin()` and `rend()` reverse the range.
 
-    // **Sorting with a Custom Comparator**
-    // We can sort complex data structures like pairs using custom comparator functions.
-    pair<int, int> ap1[] = {{1, 2}, {2, 1}, {4, 1}};
+  // **Sorting with a Custom Comparator**
+  // We can sort complex data structures like pairs using custom comparator functions.
+  pair<int, int> ap1[] = {{1, 2}, {2, 1}, {4, 1}};
 
-    // Custom comparator to sort `ap1`:
-    // 1. First, sort by the second element of the pair in increasing order.
-    // 2. If the second elements are the same, then sort by the first element in decreasing order.
-    auto comp = [](pair<int, int> p1, pair<int, int> p2) {
-        if (p1.second < p2.second) return true;
-        if (p1.second > p2.second) return false;
-        return p1.first > p2.first;
-    };
+  // Custom comparator to sort `ap1`:
+  // 1. First, sort by the second element of the pair in increasing order.
+  // 2. If the second elements are the same, then sort by the first element in decreasing order.
+  auto comp = [](pair<int, int> p1, pair<int, int> p2) {
+    if (p1.second < p2.second) return true;
+    if (p1.second > p2.second) return false;
+    return p1.first > p2.first;
+  };
 
-    int n9 = sizeof(ap1) / sizeof(ap1[0]);
-    sort(ap1, ap1 + n9, comp);
+  int n9 = sizeof(ap1) / sizeof(ap1[0]);
+  sort(ap1, ap1 + n9, comp);
 
-    // After sorting, `ap1` would be: {{4, 1}, {2, 1}, {1, 2}}
+  // After sorting, `ap1` would be: {{4, 1}, {2, 1}, {1, 2}}
 
-    // **Counting the Number of 1s in Binary Representation**
-    int num = 7;
-    // The __builtin_popcount function returns the number of 1-bits in the binary representation of `num`.
-    int cnt_1 = __builtin_popcount(num);  // 7 in binary is 111, so cnt_1 = 3
+  // **Counting the Number of 1s in Binary Representation**
+  int num = 7;
+  // The __builtin_popcount function returns the number of 1-bits in the binary representation of `num`.
+  int cnt_1 = __builtin_popcount(num);  // 7 in binary is 111, so cnt_1 = 3
 
-    long long num2 = 213871528369;
-    // For long long integers, use __builtin_popcountll.
-    int cnt_ll = __builtin_popcountll(num2);
+  long long num2 = 213871528369;
+  // For long long integers, use __builtin_popcountll.
+  int cnt_ll = __builtin_popcountll(num2);
 
-    // **Generating All Permutations of a String**
-    string s = "123";
-    // `next_permutation` generates the next lexicographically greater permutation.
-    do {
-        cout << s << endl;
-    } while (next_permutation(s.begin(), s.end()));
+  // **Generating All Permutations of a String**
+  string s = "123";
+  // `next_permutation` generates the next lexicographically greater permutation.
+  do {
+    cout << s << endl;
+  } while (next_permutation(s.begin(), s.end()));
 
-    // Output will be:
-    // 123
-    // 132
-    // 213
-    // 231
-    // 312
-    // 321
-  
+  // Output will be:
+  // 123
+  // 132
+  // 213
+  // 231
+  // 312
+  // 321
+
   return 0;
 }
