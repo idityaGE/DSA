@@ -18,35 +18,35 @@ int main() {
 
   // **VECTOR**
   // Vectors are dynamic arrays that can change size.
-  vector<int> v;  // Declaring an empty vector
-  v.push_back(1);  // Add element 1 to the end of the vector
+  vector<int> v;      // Declaring an empty vector
+  v.push_back(1);     // Add element 1 to the end of the vector
   v.emplace_back(2);  // Similar to `push_back`, but slightly more efficient for non-primitives
 
   // Vector of pairs
   vector<pair<int, int>> vp;
-  vp.push_back({1, 2});  // Adding a pair using push_back
+  vp.push_back({1, 2});   // Adding a pair using push_back
   vp.emplace_back(1, 2);  // Adding a pair using emplace_back (more efficient)
 
   // Initializing vectors with default values
   vector<int> v1(5, 10);  // Creates a vector of size 5, initialized with 10s: {10, 10, 10, 10, 10}
-  vector<int> v2(5);  // Creates a vector of size 5, initialized with 0s: {0, 0, 0, 0, 0}
+  vector<int> v2(5);      // Creates a vector of size 5, initialized with 0s: {0, 0, 0, 0, 0}
 
   // Copying a vector
   vector<int> v3(v1);  // Copy of v1: {10, 10, 10, 10, 10}
 
   // **ITERATORS**
   // Iterators are used to point to the memory addresses of STL containers.
-  vector<int>::iterator it = v.begin();  // `it` points to the first element of vector v
+  vector<int>::iterator it = v.begin();                    // `it` points to the first element of vector v
   cout << "First element in vector v: " << *(it) << endl;  // Dereferencing to get the value
-  it++;  // Moving the iterator to the next element
+  it++;                                                    // Moving the iterator to the next element
   cout << "Second element in vector v: " << *(it) << endl;
 
   vector<int>::iterator it1 = v.end();  // `it1` points to the position just after the last element
-  it1--;  // Move `it1` back to the last element
+  it1--;                                // Move `it1` back to the last element
   cout << "Last element in vector v: " << *(it1) << endl;
 
   // Reverse iterators allow you to iterate through the container in reverse order
-  vector<int>::reverse_iterator it2 = v1.rend();  // Points to the element before the first element
+  vector<int>::reverse_iterator it2 = v1.rend();    // Points to the element before the first element
   vector<int>::reverse_iterator it3 = v1.rbegin();  // Points to the last element
 
   // Accessing elements
@@ -95,7 +95,7 @@ int main() {
   cout << endl;
 
   // Insert elements
-  v5.insert(v5.begin() + 2, 9);  // Insert 9 at index 2
+  v5.insert(v5.begin() + 2, 9);   // Insert 9 at index 2
   v5.insert(v5.begin() + 3, 10);  // Insert 10 at index 3
   cout << "After inserting 9 and 10: ";
   for (auto it : v5)
@@ -110,7 +110,7 @@ int main() {
   cout << endl;
 
   // Insert another vector
-  vector<int> v6(3, 5);  // {5, 5, 5}
+  vector<int> v6(3, 5);                         // {5, 5, 5}
   v5.insert(v5.begin(), v6.begin(), v6.end());  // Insert the contents of v6 at the beginning of v5
   cout << "After inserting another vector: ";
   for (auto it : v5)
@@ -120,7 +120,7 @@ int main() {
   // Vector size and clearing elements
   cout << "Size of v5: " << v5.size() << endl;
   v5.pop_back();  // Remove the last element
-  v5.swap(v6);  // Swap the contents of v5 and v6
+  v5.swap(v6);    // Swap the contents of v5 and v6
   cout << "After swapping v5 and v6, v5: ";
   for (auto it : v5)
     cout << it << " ";
@@ -137,9 +137,9 @@ int main() {
   // **LIST**
   // Lists are doubly linked lists that allow efficient insertion and deletion from both ends
   list<int> ls;
-  ls.push_back(5);  // Add element to the end
-  ls.emplace_back(9);  // Add element to the end (more efficient than push_back)
-  ls.push_front(7);  // Add element to the front
+  ls.push_back(5);      // Add element to the end
+  ls.emplace_back(9);   // Add element to the end (more efficient than push_back)
+  ls.push_front(7);     // Add element to the front
   ls.emplace_front(3);  // Add element to the front (more efficient than push_front)
   cout << "Elements in list ls: ";
   for (auto it : ls)
@@ -149,12 +149,12 @@ int main() {
   // **DEQUE**
   // Deques are double-ended queues that allow efficient insertion and deletion from both ends
   deque<int> dq;
-  dq.push_back(5);  // Add element to the end
-  dq.emplace_back(2);  // Add element to the end
-  dq.push_front(7);  // Add element to the front
+  dq.push_back(5);      // Add element to the end
+  dq.emplace_back(2);   // Add element to the end
+  dq.push_front(7);     // Add element to the front
   dq.emplace_front(2);  // Add element to the front
-  dq.pop_back();  // Remove element from the end
-  dq.pop_front();  // Remove element from the front
+  dq.pop_back();        // Remove element from the end
+  dq.pop_front();       // Remove element from the front
   cout << "Elements in deque dq: ";
   for (auto it : dq)
     cout << it << " ";
@@ -166,15 +166,15 @@ int main() {
   // **STACK**
   // Stacks are LIFO (Last In First Out) structures
   stack<int> st;
-  st.push(1);  // Add element to the stack
-  st.push(2);  // Add element to the stack
-  st.push(3);  // Add element to the stack
-  st.push(4);  // Add element to the stack
-  st.push(5);  // Add element to the stack
-  st.emplace(9);  // Add element to the stack (more efficient than push)
+  st.push(1);                                               // Add element to the stack
+  st.push(2);                                               // Add element to the stack
+  st.push(3);                                               // Add element to the stack
+  st.push(4);                                               // Add element to the stack
+  st.push(5);                                               // Add element to the stack
+  st.emplace(9);                                            // Add element to the stack (more efficient than push)
   cout << "Top element in stack st: " << st.top() << endl;  // Get the top element
-  st.pop();  // Remove the top element
-  st.pop();  // Remove the next top element
+  st.pop();                                                 // Remove the top element
+  st.pop();                                                 // Remove the next top element
   cout << "Top element after popping: " << st.top() << endl;
   cout << "Size of stack st: " << st.size() << endl;
   cout << "Is stack st empty? " << (st.empty() ? "Yes" : "No") << endl;
@@ -182,10 +182,10 @@ int main() {
   // **QUEUE**
   // Queues are FIFO (First In First Out) structures
   queue<int> q;
-  q.push(1);  // Add element to the queue
-  q.push(2);  // Add element to the queue
-  q.push(3);  // Add element to the queue
-  q.emplace(4);  // Add element to the queue (more efficient than push)
+  q.push(1);      // Add element to the queue
+  q.push(2);      // Add element to the queue
+  q.push(3);      // Add element to the queue
+  q.emplace(4);   // Add element to the queue (more efficient than push)
   q.back() += 5;  // Modify the last element
   cout << "Back element in queue q after modification: " << q.back() << endl;
   cout << "Front element in queue q: " << q.front() << endl;
@@ -196,40 +196,40 @@ int main() {
   // Priority queues are heaps where the largest (or smallest) element has the highest priority
   // Max heap (default)
   priority_queue<int> pq;
-  pq.push(5);  // Add element
-  pq.push(2);  // Add element
-  pq.push(8);  // Add element
-  pq.emplace(10);  // Add element (more efficient)
+  pq.push(5);                                                  // Add element
+  pq.push(2);                                                  // Add element
+  pq.push(8);                                                  // Add element
+  pq.emplace(10);                                              // Add element (more efficient)
   cout << "Top element in max-heap pq: " << pq.top() << endl;  // Get the largest element
-  pq.pop();  // Remove the top element
+  pq.pop();                                                    // Remove the top element
   cout << "Top element after popping: " << pq.top() << endl;
 
   // Min heap
   priority_queue<int, vector<int>, greater<int>> mq;
-  mq.push(5);  // Add element
-  mq.push(2);  // Add element
-  mq.push(8);  // Add element
-  mq.emplace(10);  // Add element (more efficient)
+  mq.push(5);                                                  // Add element
+  mq.push(2);                                                  // Add element
+  mq.push(8);                                                  // Add element
+  mq.emplace(10);                                              // Add element (more efficient)
   cout << "Top element in min-heap mq: " << mq.top() << endl;  // Get the smallest element
-  mq.pop();  // Remove the top element
+  mq.pop();                                                    // Remove the top element
   cout << "Top element after popping: " << mq.top() << endl;
 
   // **SET**
   // Sets are sorted and unique collections of elements
   set<int> st_set;
-  st_set.insert(1);  // Add element
+  st_set.insert(1);   // Add element
   st_set.emplace(2);  // Add element (more efficient)
-  st_set.insert(4);  // Add element
-  st_set.insert(5);  // Add element
-  st_set.insert(3);  // Add element
+  st_set.insert(4);   // Add element
+  st_set.insert(5);   // Add element
+  st_set.insert(3);   // Add element
 
   auto it4 = st_set.find(3);  // Find the element 3
-  st_set.erase(3);  // Remove the element 3
+  st_set.erase(3);            // Remove the element 3
 
   int count_1 = st_set.count(1);  // Check if element 1 is in the set
 
   auto it5 = st_set.find(2);  // Find the element 2
-  st_set.erase(it5);  // Remove the element pointed by the iterator
+  st_set.erase(it5);          // Remove the element pointed by the iterator
 
   auto it6 = st_set.lower_bound(2);  // Get the first element that is not less than 2
   auto it7 = st_set.upper_bound(5);  // Get the first element that is greater than 5
@@ -242,8 +242,8 @@ int main() {
   ms.insert(1);  // Add duplicate element
   ms.insert(1);  // Add duplicate element
 
-  ms.erase(1);  // Remove all occurrences of 1
-  ms.insert(1);  // Add element
+  ms.erase(1);           // Remove all occurrences of 1
+  ms.insert(1);          // Add element
   ms.erase(ms.find(1));  // Remove a single occurrence of 1
 
   // **UNORDERED_SET**
@@ -279,6 +279,112 @@ int main() {
 
   us.clear();  // Clear all elements in the unordered set
   cout << "Size of the unordered set after clearing: " << us.size() << endl;
+
+  // **MAP**
+  // A map stores elements in key-value pairs, where each key is unique and stored in sorted order.
+  // The map is typically used when you need to quickly find, add, or remove elements based on a key.
+
+  map<int, int> mpp;              // Declare a map with int keys and int values
+  map<int, pair<int, int>> mpp1;  // Declare a map with int keys and pair<int, int> values
+
+  // Adding elements to the map
+  mpp[1] = 2;          // Add a key-value pair {1, 2} to the map
+  mpp.emplace(3, 5);   // Add a key-value pair {3, 5} using emplace (more efficient than insert)
+  mpp.insert({2, 4});  // Add a key-value pair {2, 4} using insert
+  // Note: Keys in the map are unique and stored in sorted order
+
+  mpp1[10] = {2, 3};  // Add a key-value pair {{2, 3}, 10} to the map mpp1
+
+  // Iterating through the map and printing each key-value pair
+  for (auto it : mpp)
+    cout << it.first << " " << it.second << endl;
+
+  // Accessing values using keys
+  cout << "Value at key 1: " << mpp[1] << endl;  // Output: 2
+  cout << "Value at key 5: " << mpp[5] << endl;  // No key 5, returns 0 (default for int)
+
+  // Finding elements in the map
+  auto it87 = mpp.find(3);  // Find the iterator pointing to the key-value pair with key 3
+  if (it87 != mpp.end())
+    cout << "Found: " << it87->second << endl;  // Output the value if found
+
+  auto it98 = mpp.find(5);  // Try to find a key that doesn't exist
+  if (it98 == mpp.end())
+    cout << "Key 5 not found!" << endl;  // Output if the key is not found
+
+  // Lower and upper bounds
+  auto lb = mpp.lower_bound(2);  // Get an iterator to the first element that is not less than 2
+  auto ub = mpp.upper_bound(3);  // Get an iterator to the first element that is greater than 3
+
+  // Common operations such as erase, size, swap, and empty also work with maps
+  mpp.erase(2);                                // Erase the element with key 2
+  cout << "Map size: " << mpp.size() << endl;  // Output the current size of the map
+
+  // **MULTIMAP**
+  // A multimap is similar to a map but allows duplicate keys. Elements are stored in sorted order based on keys.
+  // Unlike map, you cannot use mpp[key] syntax to access elements.
+
+  multimap<int, int> mmp;  // Declare a multimap with int keys and int values
+  mmp.insert({1, 2});      // Add a key-value pair {1, 2}
+  mmp.insert({1, 3});      // Add a duplicate key {1, 3}
+  mmp.insert({2, 4});      // Add a key-value pair {2, 4}
+
+  // Iterating through the multimap and printing each key-value pair
+  for (auto it : mmp)
+    cout << it.first << " " << it.second << endl;
+
+  // **UNORDERED_MAP**
+  // An unordered_map is similar to a map but does not store elements in sorted order. It uses a hash table for storage,
+  // which provides average O(1) time complexity for insertions, deletions, and access.
+  // However, the worst-case time complexity for these operations is O(n).
+
+  unordered_map<int, int> umpp;  // Declare an unordered_map with int keys and int values
+  umpp[1] = 2;                   // Add a key-value pair {1, 2}
+  umpp[2] = 3;                   // Add a key-value pair {2, 3}
+  umpp[3] = 4;                   // Add a key-value pair {3, 4}
+
+  // Iterating through the unordered_map and printing each key-value pair
+  for (auto it : umpp)
+    cout << it.first << " " << it.second << endl;
+
+  // Erasing and checking size
+  umpp.erase(2);                                          // Erase the element with key 2
+  cout << "Unordered map size: " << umpp.size() << endl;  // Output the current size of the unordered_map
+
+  //** SOME_EXTRA **//
+  // sorting
+  sort(v.begin(), v.end());                // increasing order
+  sort(v.begin(), v.end(), greater<int>);  // decreasing order
+  sort(v.rbegin(), v.rend());              // decreasing order
+
+  // sorting in your way
+  pair<int, int> ap1[] = {{1, 2}, {2, 1}, {4, 1}};
+  // sort it according to second element
+  // if the second element is same, then sort
+  // it according to first element but in decending order
+  bool comp(pair<int, int> p1, pair<int, int> p2) {
+    if (p1.second < p2.second) return 1;
+    if (p1.second > p2.second) return 0;
+    if (p1.first > p2.first) return 1;
+    return 0;
+  }
+  sort(ap1, ap1 + n, comp);
+
+  // count 1 in binary form
+  int num = 7;
+  int cnt_1 = __builtin_popcount(); // return the no. of 1 in binary of 7 which is 111 --> 3 and for 6, binary is 110 --> 2
+
+  long long num2 = 213871528369;
+  int cnt_ll = __builtin_popcountll(); // for long long data type at last of fn we add `ll`
+
+  // print all permutation combination of this string
+  strint s = "123";
+  do
+  {
+    cout << s << endl;
+  } while (next_permutation(s.begin(), s.end()));
+  
+
 
   return 0;
 }
