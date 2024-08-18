@@ -3,7 +3,6 @@
 3
 1
 2
-483566731
 2
 1 1
 2
@@ -27,9 +26,17 @@ Yes
 9
 4
 4
-NO
+No
 9
 1
 2
+10
+8
 2
 5
+Elements present in the unordered set: 10 9 8 7 6 5 1 2 3 4 
+2 is present in the unordered set
+Elements after deleting the first element: 9 8 7 6 5 1 2 3 4 
+The size of the unordered set is: 9
+The unordered set is not empty
+Size of the unordered set after clearing all the elements: 0

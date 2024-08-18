@@ -13,47 +13,45 @@ int main() {
   cout << parr[1].second << endl;
 
   // vector
-  // for more about vector --> https://github.com/idityaGE/class-assignment/blob/main/cpp/vector/intro.cpp
   vector<int> v;      // --> {}
   v.push_back(1);     // --> {1}
-  v.emplace_back(2);  // --> {1,2}   // `emplace_back` is faster than `push_back`
+  v.emplace_back(2);  // --> {1, 2}
 
   vector<pair<int, int>> vp;
   vp.push_back({1, 2});
-  vp.emplace_back(1, 2);  // automatically consider it as a pair and push in vector
+  vp.emplace_back(1, 2);  // automatically considered as a pair and pushed into the vector
 
-  vector<int> v1(5, 10);  // -->  {10, 10, 10, 10, 10}
-  vector<int> v2(5);      // -->  {0, 0, 0, 0, 0}
+  vector<int> v1(5, 10);  // --> {10, 10, 10, 10, 10}
+  vector<int> v2(5);      // --> {0, 0, 0, 0, 0}
 
-  vector<int> v3(v2);  // -->  {10, 10, 10, 10, 10}  // copy of the of `v1`
+  vector<int> v3(v1);     // --> {10, 10, 10, 10, 10}  // copy of `v1`
 
   // iterator
-  vector<int>::iterator it = v.begin();  // point to the first element of the vector v
+  vector<int>::iterator it = v.begin();  // points to the first element of vector v
   cout << *(it) << endl;
   it++;
   cout << *(it) << endl;
 
-  vector<int>::iterator it1 = v.end();  // point to memory address just after the last element
-  cout << *(it1) << endl;               // some random value
-  it1--;                                // after `it1--;` it will point to last element of the vector
+  vector<int>::iterator it1 = v.end();  // points to memory address just after the last element
+  it1--;                                // after `it1--;` it will point to the last element of the vector
   cout << *(it1) << endl;
 
-  vector<int>::reverse_iterator it2 = v1.rend();    // point to the address before first element and if we do `it2++` it will move in forward direction
-  vector<int>::reverse_iterator it3 = v1.rbegin();  // point to last element of the vector and if we do `it3++` it will move in backward direction
+  vector<int>::reverse_iterator it2 = v1.rend();    // points to the address before the first element
+  vector<int>::reverse_iterator it3 = v1.rbegin();  // points to the last element of the vector
 
   cout << v[0] << " " << v.at(0) << endl;  // element at index zero
   cout << v.back() << endl;                // last element
 
-  for (vector<int>::iterator it = v1.begin(); it != v1.end(); it++) {  // but this is very long
+  for (vector<int>::iterator it = v1.begin(); it != v1.end(); it++) {
     cout << *(it) << " ";
   }
   cout << endl;
-  // instead of using above syntax use:
-  for (auto it = v1.begin(); it < v1.end(); it++) {
+
+  for (auto it = v1.begin(); it != v1.end(); it++) {
     cout << *(it) << " ";
   }
   cout << endl;
-  // there is better use also
+
   for (auto it : v1) {
     cout << it << " ";
   }
@@ -63,13 +61,14 @@ int main() {
   for (auto it : v5)
     cout << it << " ";
   cout << endl;
+
   // erase
-  v5.erase(v5.begin() + 1);  // erase --> 6 [ index = 1 ]
+  v5.erase(v5.begin() + 1);  // erase element at index 1
   for (auto it : v5)
     cout << it << " ";
   cout << endl;
 
-  v5.erase(v5.begin() + 2, v5.begin() + 4);  // --> for index 2 to 3, not 4th index --> [start,end)
+  v5.erase(v5.begin() + 2, v5.begin() + 4);  // erase elements from index 2 to 3
   for (auto it : v5)
     cout << it << " ";
   cout << endl;
@@ -81,13 +80,13 @@ int main() {
     cout << it << " ";
   cout << endl;
 
-  // insert multiple element
-  v5.insert(v5.begin() + 2, 4, 7);  // at index 2 insert 4 no. of 7
+  // insert multiple elements
+  v5.insert(v5.begin() + 2, 4, 7);  // insert 4 occurrences of 7 at index 2
   for (auto it : v5)
     cout << it << " ";
   cout << endl;
 
-  // inserting another vector
+  // insert another vector
   vector<int> v6(3, 5);
   v5.insert(v5.begin(), v6.begin(), v6.end());
   for (auto it : v5)
@@ -107,7 +106,7 @@ int main() {
     cout << it << " ";
   cout << endl;
 
-  v5.clear();  // remove all element
+  v5.clear();  // remove all elements
 
   cout << (v5.empty() ? "Yes" : "No") << endl;  // return true if vector is empty
 
@@ -115,14 +114,12 @@ int main() {
   list<int> ls;
   ls.push_back(5);
   ls.emplace_back(9);
-  // In list, we can use front operation which can only be performed in vector by using insert fn and insert function is costly than this below fn of list
   ls.push_front(7);
   ls.emplace_front(3);
   for (auto it : ls)
     cout << it << " ";
   cout << endl;
-  // rest fn are same as vector
-  // begin, end, clear, insert, size, swap, clear, empty, erase, pop_back
+  // other functions are the same as vector
 
   // Deque
   deque<int> dq;
@@ -138,12 +135,9 @@ int main() {
 
   cout << dq.front() << endl;
   cout << dq.back() << endl;
-  // rest fn are same as vector
-  // begin, end, clear, insert, size, swap, clear, empty, erase, pop_back
 
   // Stack --> LIFO
   stack<int> st;
-  // all of operation are O(1)
   st.push(1);
   st.push(2);
   st.push(3);
@@ -155,129 +149,108 @@ int main() {
   st.pop();
   st.pop();
   cout << st.top() << endl;
-  // here begin or end is not allowed
   cout << st.size() << endl;
-  cout << (st.empty() ? "Yes" : "NO") << endl;
-  stack<int> st1, st2;
-  st1.swap(st2);  // swap
+  cout << (st.empty() ? "Yes" : "No") << endl;
 
   // Queue --> FIFO
-  queue<int> q;  // all operation happen in O(1)
-  q.push(1);     // {1}
-  q.push(2);     // {1,2}
-  q.push(3);     // {1,2,3}
-  q.emplace(4);  // {1,2,3,4}
+  queue<int> q;
+  q.push(1);
+  q.push(2);
+  q.push(3);
+  q.emplace(4);
 
-  q.back() += 5;  // {1,2,3,9}
+  q.back() += 5;
   cout << q.back() << endl;
   cout << q.front() << endl;
 
-  q.pop();  // {2,3,9}
+  q.pop();
   cout << q.front() << endl;
 
   // priority_queue
   // max heap
-  // value with largest value stay at the top
   priority_queue<int> pq;
-  pq.push(5);      // {5}
-  pq.push(2);      // {5,2}
-  pq.push(8);      // {8,5,2}
-  pq.emplace(10);  // {10,8,5,2}
-  // data is not stored in linear manner its stored in tree data structure
-  pq.top();  // 10
-  pq.pop();  // {8,5,2}
+  pq.push(5);
+  pq.push(2);
+  pq.push(8);
+  pq.emplace(10);
 
-  // minimum heap
+  cout << pq.top() << endl;
+  pq.pop();
+  cout << pq.top() << endl;
+
+  // min heap
   priority_queue<int, vector<int>, greater<int>> mq;
-  mq.push(5);      // {5}
-  mq.push(2);      // {2,5}
-  mq.push(8);      // {2,5,8}
-  mq.emplace(10);  // {2,5,8,10}
+  mq.push(5);
+  mq.push(2);
+  mq.push(8);
+  mq.emplace(10);
 
   cout << mq.top() << endl;
-  mq.pop();  // {5,8,10}
+  mq.pop();
   cout << mq.top() << endl;
-  // push and pop happen in O(log(n))
-  // top happen in O(1)
 
   // Set
-  // ordered and unique
-  set<int> st;
-  st.insert(1);   // {1}
-  st.emplace(2);  // {1,2}
-  st.insert(4);   // {1,2,4}
-  st.insert(5);   // {1,2,4,5}
-  st.insert(3);   // {1,2,3,4,5}
-  // this is also a tree data sturcture
-  // functionality of insert in vector
-  // can be used also.
-  // begin(), end(), rbegin(), rend(), size()
-  // empty() and swap() can also be used here
+  set<int> st_set;
+  st_set.insert(1);
+  st_set.emplace(2);
+  st_set.insert(4);
+  st_set.insert(5);
+  st_set.insert(3);
 
-  auto it = st.find(3);  // return an iterator that points to 3
-  // if the element that you are trying to find in present it retuen st.end();
+  auto it4 = st_set.find(3);
+  st_set.erase(3);
 
-  st.erase(3);  // {1,2,4,5}
+  int count_1 = st_set.count(1);
 
-  int count_1 = st.count(1);  // 1
+  auto it5 = st_set.find(2);
+  st_set.erase(it5);
 
-  auto it2 = st.find(2);
-  st.erase(it2);
-
-  auto it3 = st.find(3);
-  auto it5 = st.find(5);
-  st.erase(it3, it5);
-
-  auto it = st.lower_bound(2);
-  auto it = st.upper_bound(5);
-
+  auto it6 = st_set.lower_bound(2);
+  auto it7 = st_set.upper_bound(5);
 
   // multiset
   multiset<int> ms;
-  // same as set but it only obey the rule of being sorted not of uniqueness
   ms.insert(1);
   ms.insert(1);
   ms.insert(1);
-  ms.insert(1); // {1,1,1,1}
+  ms.insert(1);
 
-  ms.erase(1); // erase all occurance of 1
-  ms.erase(ms.find(1)); // erase only one 1
-  
+  ms.erase(1);
+  ms.insert(1);
+  ms.erase(ms.find(1));
+
   // unordered_set
-  // unique but not ordered
-  // lower_bound & upper_bound fn do not work
-  // Every operation on an unordered set takes O(1) complexity in the average case and takes O(n) in the worst case.
-  unordered_set < int > s;
+  unordered_set<int> us;
   for (int i = 1; i <= 10; i++) {
-    s.insert(i);
+    us.insert(i);
   }
 
   cout << "Elements present in the unordered set: ";
-  for (auto it = s.begin(); it != s.end(); it++) {
-    cout << * it << " ";
+  for (auto it = us.begin(); it != us.end(); it++) {
+    cout << *it << " ";
   }
   cout << endl;
+
   int n = 2;
-  if (s.find(2) != s.end())
-    cout << n << " is present in unordered set" << endl;
+  if (us.find(2) != us.end())
+    cout << n << " is present in the unordered set" << endl;
 
-  s.erase(s.begin());
+  us.erase(us.begin());
   cout << "Elements after deleting the first element: ";
-  for (auto it = s.begin(); it != s.end(); it++) {
-    cout << * it << " ";
+  for (auto it = us.begin(); it != us.end(); it++) {
+    cout << *it << " ";
   }
   cout << endl;
 
-  cout << "The size of the unordered set is: " << s.size() << endl;
+  cout << "The size of the unordered set is: " << us.size() << endl;
 
-  if (s.empty() == false)
-    cout << "The unordered set is not empty " << endl;
+  if (!us.empty())
+    cout << "The unordered set is not empty" << endl;
   else
     cout << "The unordered set is empty" << endl;
-  s.clear();
-  cout << "Size of the unordered set after clearing all the elements: " << s.size();
 
-
+  us.clear();
+  cout << "Size of the unordered set after clearing all the elements: " << us.size() << endl;
 
   return 0;
 }
