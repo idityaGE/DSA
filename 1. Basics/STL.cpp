@@ -351,40 +351,62 @@ int main() {
   umpp.erase(2);                                          // Erase the element with key 2
   cout << "Unordered map size: " << umpp.size() << endl;  // Output the current size of the unordered_map
 
-  //** SOME_EXTRA **//
-  // sorting
-  sort(v.begin(), v.end());                // increasing order
-  sort(v.begin(), v.end(), greater<int>);  // decreasing order
-  sort(v.rbegin(), v.rend());              // decreasing order
+  // **SOME_EXTRA**
 
-  // sorting in your way
-  pair<int, int> ap1[] = {{1, 2}, {2, 1}, {4, 1}};
-  // sort it according to second element
-  // if the second element is same, then sort
-  // it according to first element but in decending order
-  bool comp(pair<int, int> p1, pair<int, int> p2) {
-    if (p1.second < p2.second) return 1;
-    if (p1.second > p2.second) return 0;
-    if (p1.first > p2.first) return 1;
-    return 0;
-  }
-  sort(ap1, ap1 + n, comp);
+    // **Sorting**
+    // The `sort` function is used to sort elements in a range.
+    // By default, it sorts in increasing order.
 
-  // count 1 in binary form
-  int num = 7;
-  int cnt_1 = __builtin_popcount(); // return the no. of 1 in binary of 7 which is 111 --> 3 and for 6, binary is 110 --> 2
+    vector<int> v8 = {4, 2, 5, 3, 1};
 
-  long long num2 = 213871528369;
-  int cnt_ll = __builtin_popcountll(); // for long long data type at last of fn we add `ll`
+    sort(v8.begin(), v8.end());  // Sort in increasing order: {1, 2, 3, 4, 5}
 
-  // print all permutation combination of this string
-  strint s = "123";
-  do
-  {
-    cout << s << endl;
-  } while (next_permutation(s.begin(), s.end()));
+    sort(v8.begin(), v8.end(), greater<int>());  // Sort in decreasing order: {5, 4, 3, 2, 1}
+
+    sort(v8.rbegin(), v8.rend());  // Another way to sort in decreasing order: {5, 4, 3, 2, 1}
+    // `rbegin()` and `rend()` reverse the range.
+
+    // **Sorting with a Custom Comparator**
+    // We can sort complex data structures like pairs using custom comparator functions.
+    pair<int, int> ap1[] = {{1, 2}, {2, 1}, {4, 1}};
+
+    // Custom comparator to sort `ap1`:
+    // 1. First, sort by the second element of the pair in increasing order.
+    // 2. If the second elements are the same, then sort by the first element in decreasing order.
+    auto comp = [](pair<int, int> p1, pair<int, int> p2) {
+        if (p1.second < p2.second) return true;
+        if (p1.second > p2.second) return false;
+        return p1.first > p2.first;
+    };
+
+    int n9 = sizeof(ap1) / sizeof(ap1[0]);
+    sort(ap1, ap1 + n9, comp);
+
+    // After sorting, `ap1` would be: {{4, 1}, {2, 1}, {1, 2}}
+
+    // **Counting the Number of 1s in Binary Representation**
+    int num = 7;
+    // The __builtin_popcount function returns the number of 1-bits in the binary representation of `num`.
+    int cnt_1 = __builtin_popcount(num);  // 7 in binary is 111, so cnt_1 = 3
+
+    long long num2 = 213871528369;
+    // For long long integers, use __builtin_popcountll.
+    int cnt_ll = __builtin_popcountll(num2);
+
+    // **Generating All Permutations of a String**
+    string s = "123";
+    // `next_permutation` generates the next lexicographically greater permutation.
+    do {
+        cout << s << endl;
+    } while (next_permutation(s.begin(), s.end()));
+
+    // Output will be:
+    // 123
+    // 132
+    // 213
+    // 231
+    // 312
+    // 321
   
-
-
   return 0;
 }
