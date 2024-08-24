@@ -8,7 +8,7 @@ void print_all_divisor(int n) {
 
 // better approch
 void print_divisor(int n) {
-  for (int i = 1; i * i <= n /*[i <= sqrt(n);]*/; i++)
+  for (int i = 1; i * i <= n /*[i <= sqrt(n)]*/; i++)
     if (n % i == 0)
       cout << i << " x " << n / i << " = 36" << endl;
   // if(n / i != i) v.emplace_back(n/i);
