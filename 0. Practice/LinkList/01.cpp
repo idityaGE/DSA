@@ -102,6 +102,63 @@ NODE *merge_sort(NODE *p1, NODE *p2) {
   }
 }
 
+int mid(NODE *p) {
+  if (p == nullptr)
+    cout << "Link List is empty" << endl;
+  else {
+    NODE *fast, *slow;
+    fast = p;
+    slow = p;
+    while (fast != nullptr || fast->next != nullptr) {
+      slow = slow->next;
+      fast = fast->next->next;
+    }
+    return slow->data;
+  }
+}
+
+NODE *reverse(NODE *p) {
+  if (p == nullptr)
+    cout << "Link List is empty" << endl;
+  else if (p->next == nullptr)
+    cout << "ll has only one elem" << endl;
+  else {
+    NODE *prev, *curr, *fut;
+    prev = nullptr;
+    curr = p;
+    fut = p->next;
+    while (fut != nullptr) {
+      curr->next = prev;
+      prev = curr;
+      curr = fut;
+      fut = fut->next;
+    }
+    curr->next = prev;
+    p = curr;
+  }
+  return p;
+}
+
+NODE *remove_dupl_sorted(NODE *p) {
+  if (p == nullptr)
+    cout << "Link List is empty" << endl;
+  else if (p->next == nullptr)
+    cout << "ll has only one elem" << endl;
+  else {
+    NODE *temp = p;
+    NODE *temp1;
+    while (temp != nullptr) {
+      if (temp->data == temp->next->data) {
+        temp1 = temp->next;
+        temp->next = temp->next->next;
+        delete temp1;
+      } else
+        temp = temp->next;
+    }
+  }
+  return p;
+}
+
 int main() {
   return 0;
 }
