@@ -50,11 +50,11 @@ vector<vector<int>> threeSum_optimal(vector<int> &arr) {
     int k = n - 1;
     while (j < k) {
       int sum = arr[i] + arr[j] + arr[k];
-      if (sum < 0) {
+      if (sum < 0)
         j++;
-      } else if (sum > 0) {
+      else if (sum > 0)
         k--;
-      } else {
+      else {
         vector<int> temp = {arr[i], arr[j], arr[k]};
         ans.push_back(temp);
         j++;
