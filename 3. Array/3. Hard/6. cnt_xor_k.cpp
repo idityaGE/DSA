@@ -1,6 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int subarr_cnt_xor_k(vector<int> &arr, int k) {
+  int n = arr.size();
+  int cnt = 0;
+  for (int i = 0; i < n; i++) {
+    int xr = 0;
+    for (int j = i; j < n; j++) {
+      xr = xr ^ arr[j];
+      if (k == xr) cnt++;
+    }
+  }
+  return cnt;
+}
+
 int subarr_xor_k(vector<int> &arr, int k) {
   // formula =>  x = xr ^ k
   int xr = 0;
@@ -22,7 +35,6 @@ int main() {
   vector<int> arr(n);
   for (int i = 0; i < n; i++)
     cin >> arr[i];
-
   cout << subarr_xor_k(arr, 6) << endl;
   return 0;
 }
