@@ -89,12 +89,6 @@ void merge_sorted_arr_without_extra_space_2(vector<int>& arr1, vector<int>& arr2
   for (auto i : arr2)
     cout << i << " ";
 }
-/* input
-4
-1 3 5 7
-5
-0 2 6 8 9
-*/
 
 // leetcode problem 88
 void merge(vector<int>& arr1, int n, vector<int>& arr2, int m) {
@@ -121,6 +115,13 @@ void merge(vector<int>& arr1, int n, vector<int>& arr2, int m) {
       gap = (gap / 2) + (gap % 2);
   }
 }
+
+/* input
+4
+1 3 5 7
+5
+0 2 6 8 9
+*/
 
 int main() {
   int n;
