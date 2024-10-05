@@ -29,11 +29,11 @@ int ciel(vector<int> &arr, int x) {
   int ans = -1;
   while (low <= high) {
     int mid = low + (high - low) / 2;
-    if (arr[mid] >= x) {
+    if (arr[mid] >= x) {  // equal or greater then x
       ans = arr[mid];
-      high = mid + 1;
+      high = mid - 1; // if found greater then x the go left to find equal
     } else
-      low = mid + 1;
+      low = mid + 1; // else go right to find greater or equal
   }
   return ans;
 }
@@ -46,6 +46,7 @@ int main() {
     cin >> arr[i];
 
   cout << floor(arr, 5);
+  cout << endl;
   cout << ciel(arr, 5);
   return 0;
 }
