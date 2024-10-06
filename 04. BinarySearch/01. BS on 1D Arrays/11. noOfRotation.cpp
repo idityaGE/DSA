@@ -6,7 +6,7 @@ int pivot_index(vector<int>& arr) {
   int low = 0, high = n - 1;
   int ans = 0;
   while (low <= high) {
-    int mid = (low + high) / 2;
+    int mid = (low + high) / 2; 
     if (arr[0] <= arr[mid])
       low = mid + 1;
     else {
