@@ -14,6 +14,7 @@ class Node {
   Node(int val, Node *prevNode, Node *nextNode)
       : data(val), next(nextNode), prev(prevNode) {}
 };
+
 void print(Node *head) {
   if (head == nullptr) return;
   Node *temp = head;
