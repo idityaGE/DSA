@@ -91,7 +91,9 @@ Node *deleteNode(Node *head, int pos) {
   if (pos == 1) {
     Node *temp = head;
     head = head->next;
-    head->prev = nullptr;
+    if (head != nullptr) {  // Check if the list had only one node
+      head->prev = nullptr;
+    }
     delete temp;
     return head;
   }
@@ -108,6 +110,22 @@ Node *deleteNode(Node *head, int pos) {
     temp->next->prev = temp->prev;
   delete temp;
   return head;
+}
+
+void deleteNode(Node *node) {
+  Node *temp = node;
+  Node *prev = temp->prev;
+  Node *front = temp->next;
+  if (front == nullptr) {
+    prev->next = nullptr;
+    temp->prev = nullptr;
+    delete temp;
+    return;
+  }
+  prev->next = front;
+  front->prev = prev;
+  temp = temp->prev = nullptr;
+  delete temp;
 }
 
 Node *insertAtBeg(Node *head, int val) {
