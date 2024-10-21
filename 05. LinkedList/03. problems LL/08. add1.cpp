@@ -100,3 +100,21 @@ int main() {
   cout << endl;
   return 0;
 }
+
+/*
+Sample Input 1:
+3
+1 5 2
+Sample Output 1:
+1 5 3
+Explanation For Sample Input 1:
+Initially the number is 152. After incrementing it by 1, the number becomes 153.
+
+Sample Input 2:
+2
+9 9
+Sample Output 2:
+1 0 0
+Explanation For Sample Input 2:
+Initially the number is 9. After incrementing it by 1, the number becomes 100. Please note that there were 2 nodes in the initial linked list, but there are three nodes in the sum linked list.
+*/

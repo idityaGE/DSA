@@ -86,23 +86,16 @@ Node *findIntersection(Node *head1, Node *head2) {
 }
 
 // Optimal approch [cross travese]
-Node *findIntersection(Node *firstHead, Node *secondHead) {
-  if (!firstHead || !secondHead)
+Node *findIntersection(Node *head1, Node *head2) {
+  if (!head1 || !head2)
     return nullptr;
-  Node *temp1 = firstHead;
-  Node *temp2 = secondHead;
+  Node *temp1 = head1;
+  Node *temp2 = head2;
   while (temp1 != temp2) {
-    temp1 = temp1->next;
-    temp2 = temp2->next;
-
-    if (temp1 == temp2)
-      return temp1;
-    if (temp1 == nullptr)
-      temp1 = secondHead;
-    if (temp2 == nullptr)
-      temp2 = firstHead;
+    temp1 = (temp1 == nullptr) ? head2 : temp1->next;
+    temp2 = (temp2 == nullptr) ? head1 : temp2->next;
   }
-  return nullptr;
+  return temp1;
 }
 
 int main() {
@@ -113,3 +106,14 @@ int main() {
   cout << endl;
   return 0;
 }
+
+/*
+Sample Input 1 :
+4 1 -1
+5 6 -1
+8 -1
+Sample Output 1 :
+8
+Explanation For Sample Input 1:
+As shown in the diagram, the node with data is 8, at which merging starts
+*/

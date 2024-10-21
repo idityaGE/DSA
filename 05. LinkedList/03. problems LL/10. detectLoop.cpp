@@ -30,22 +30,34 @@ Node *constructLL(vector<int> &arr) {
   return head;
 }
 
-Node *deleteMiddle(Node *head) {
-  if (!head || !head->next)
-    return nullptr;
+// hashing method
+bool detectCycle(Node *head) {
+  if (!head)
+    return false;
+  Node *temp = head;
+  unordered_map<Node *, int> mp;
+  while (temp != nullptr) {
+    if (mp.find(temp) != mp.end())
+      return true;
+    mp[temp] = 1;
+    temp = temp->next;
+  }
+  return false;
+}
 
+// optimal approch [ Tortoise and Hare Algorithm ]
+bool detectCycle(Node *head) {
+  if (head == nullptr || head->next == nullptr)
+    return false;
   Node *slow = head;
-  Node *fast = head->next;
-  while (fast->next != nullptr && fast->next->next != nullptr) {
+  Node *fast = head;
+  while (fast != nullptr && fast->next != nullptr) {
     slow = slow->next;
     fast = fast->next->next;
+    if (slow == fast)
+      return true;
   }
-
-  Node *temp = slow->next;
-  slow->next = slow->next->next;
-  temp->next = nullptr;
-  delete temp;
-  return head;
+  return false;
 }
 
 int main() {
@@ -59,10 +71,15 @@ int main() {
 
 /*
 Sample Input 1 :
-5
-1 2 3 4 5
+1 2 3 4 -1
+1
 Sample Output 1 :
-1 2 4 5
-Explanation to Sample Input 1 :
-We can clearly see that there are 5 nodes in the linked list therefore the middle node is the node with value '3'.
+true
+Explanation of Sample Input 1:
+The linked list given in the input is as follows:
+
+1 -> 2 -> 3 -> 4
+     ^         |
+     |         |
+     -----------
 */
