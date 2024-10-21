@@ -65,6 +65,7 @@ bool isPalindrome_optimal(Node *head) {
     return true;
   Node *slow = head;
   Node *fast = head;
+
   // we need to stop before the slow reaches to middle node
   while (fast->next != nullptr && fast->next->next != nullptr) {
     slow = slow->next;
