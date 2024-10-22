@@ -30,10 +30,46 @@ Node *constructLL(vector<int> &arr) {
   return head;
 }
 
+// hashing
+Node *firstNode(Node *head) {
+  if (!head)
+    return nullptr;
+  map<Node *, int> mp;
+  Node *temp = head;
+  while (temp != nullptr) {
+    if (mp.find(temp) != mp.end())
+      return temp;
+    mp[temp] = 1;
+    temp = temp->next;
+  }
+  return nullptr;
+}
+
+// optimal
+Node *firstNode(Node *head) {
+  if (!head)
+    return nullptr;
+  Node *slow = head;
+  Node *fast = head;
+  while (fast != nullptr && fast->next != nullptr) {
+    slow = slow->next;
+    fast = fast->next->next;
+    if (slow == fast) {
+      slow = head;
+      while (slow != fast) {
+        slow = slow->next;
+        fast = fast->next;
+      }
+      return slow;
+    }
+  }
+  return nullptr;
+}
+
 int main() {
   vector<int> arr = {1, 3, 5, 2, 6};
   Node *head = constructLL(arr);
-  
+
   print(head);
   cout << endl;
   return 0;
