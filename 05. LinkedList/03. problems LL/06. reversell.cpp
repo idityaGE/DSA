@@ -75,7 +75,6 @@ Node *reverseLinkedList_recursive(Node *head) {
   Node *front = head->next;
   front->next = head;
   head->next = nullptr;
-
   return newHead;
 }
 

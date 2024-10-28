@@ -33,7 +33,8 @@ Node *convertArrToDLL(vector<int> &arr) {
   return head;
 }
 
-// brute force
+// LL is sorted
+// brute force O(n^2)
 vector<pair<int, int>> findPairs(Node *head, int k) {
   vector<pair<int, int>> ans;
   Node *temp1 = head;
