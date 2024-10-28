@@ -31,8 +31,36 @@ Node *constructLL(vector<int> &arr) {
   return head;
 }
 
+Node *merge2List(Node *first, Node *second) {
+  Node *t1 = first, *t2 = second, *temp = nullptr;
+  Node *dummyNode = new Node(-1);
+  temp = dummyNode;
+  while (t1 != nullptr && t2 != nullptr) {
+    if (t1->data < t2->data) {
+      temp->child = t1;
+      temp = t1;
+      t1 = t1->child;
+    } else {
+      temp->child = t2;
+      temp = t2;
+      t2 = t2->child;
+    }
+    temp->next = nullptr;
+  }
+  if (t1)
+    temp->child = t1;
+  if (t2)
+    temp->child = t2;
+  if (dummyNode->child)
+    dummyNode->child->next = nullptr;
+  return dummyNode->child;
+}
+
 Node *flattenLinkedList(Node *head) {
-	
+  if (head == nullptr || head->next == nullptr)
+    return head;
+  Node *mergedHead = flattenLinkedList(head->next);
+  return merge2List(head, mergedHead);
 }
 
 int main() {
