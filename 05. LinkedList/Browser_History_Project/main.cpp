@@ -4,27 +4,27 @@ using namespace std;
 class Node {
  public:
   string url;
-  Node *next;
-  Node *back;
+  Node* next;
+  Node* back;
 
   Node(string val)
-      : url(val), next(nullptr) {}
-  Node(string val, Node *nextNode)
-      : url(val), next(nextNode) {}
-  Node(string val, Node *nextNode, Node *randomNode)
+      : url(val), next(nullptr), back(nullptr) {}
+  Node(string val, Node* nextNode)
+      : url(val), next(nextNode), back(nullptr) {}
+  Node(string val, Node* nextNode, Node* randomNode)
       : url(val), next(nextNode), back(randomNode) {}
 };
 
 class Browser {
-  Node *currentTab;
+  Node* currentTab;
 
  public:
-  Browser(string &homepage) {
+  Browser(string& homepage) {
     currentTab = new Node(homepage);
   }
 
-  void visit(string &url) {
-    Node *newCurrTab = new Node(url);
+  void visit(string& url) {
+    Node* newCurrTab = new Node(url);
     currentTab->next = newCurrTab;
     newCurrTab->back = currentTab;
     currentTab = newCurrTab;
