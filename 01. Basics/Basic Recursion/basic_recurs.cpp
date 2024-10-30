@@ -39,8 +39,8 @@ void print_N_n1(int n, int N) {
 int main() {
   int count = 8;
   // print_name(count);
-  // print_n_N(5, 20);
-  // print_N_n(1, 20);
+  // print_n_N1(5, 20);
+  // print_N_n1(1, 20);
 
   return 0;
 }

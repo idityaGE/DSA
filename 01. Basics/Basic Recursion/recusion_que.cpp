@@ -23,13 +23,14 @@ int fibonacci_series(int n) {
   return fibonacci_series(n - 1) + fibonacci_series(n - 2);
 }
 
-// void reverse_arr(int arr[], int st, int end) {
-//   if (st >= end) return;
-//   swap(arr[st], arr[end]);
-//   reverse_arr(arr, st + 1, end - 1);
-// }
-// better method using single value
-void reverse_arr(int arr[], int n, int i = 0) {
+void reverse_arr_2pointer(int arr[], int st, int end) {
+  if (st >= end) return;
+  swap(arr[st], arr[end]);
+  reverse_arr(arr, st + 1, end - 1);
+}
+
+// better method using single value 
+void reverse_arr(int arr[], int n, int i = 0) { // default parameter
   if (i >= n / 2) return;
   swap(arr[i], arr[n - i - 1]);
   reverse_arr(arr, n, i + 1);
@@ -51,7 +52,7 @@ int main() {
   for (int i = 0; i < 5; i++) cout << arr[i] << " ";
   cout << endl;
 
-  string st = "madsm";
+  string st = "maddam";
   cout << check_palindrome(st);
 
   return 0;
