@@ -33,9 +33,9 @@ void printSubSeq(int index, vector<int> &ds, vector<int> &arr, int n) {
   // first pick
   ds.push_back(arr[index]);
   printSubSeq(index + 1, ds, arr, n);
+  ds.pop_back();
 
   // then not pick
-  ds.pop_back();
   printSubSeq(index + 1, ds, arr, n);
 }
 
