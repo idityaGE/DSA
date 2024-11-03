@@ -11,13 +11,16 @@ void combinations(int index, int target, vector<int>& arr,
   if (index >= arr.size() || target < 0)
     return;
 
-  // pick the current element (can pick multiple times)
-  subset.push_back(arr[index]);
-  combinations(index + 1, target - arr[index], arr, res, subset);
-  subset.pop_back();
+  for (int i = index; i < arr.size(); i++) {
+    
+    // Skip duplicates
+    if (i > index && arr[i] == arr[i - 1])
+      continue;
 
-  // not pick the current element
-  combinations(index + 1, target, arr, res, subset);
+    subset.push_back(arr[i]);
+    combinations(i + 1, target - arr[i], arr, res, subset);
+    subset.pop_back();
+  }
 }
 
 int main() {
@@ -26,14 +29,17 @@ int main() {
   vector<int> arr(n);
   for (int i = 0; i < n; i++)
     cin >> arr[i];
+
+  sort(arr.begin(), arr.end());
+
   vector<vector<int>> res;
   vector<int> subset;
   combinations(0, 8, arr, res, subset);
 
-  for (int i = 0; i < res.size(); i++)
-    sort(res[i].begin(), res[i].end());
+  // for (int i = 0; i < res.size(); i++)
+  //   sort(res[i].begin(), res[i].end());
 
-  sort(res.begin(), res.end());
+  // sort(res.begin(), res.end());
 
   for (auto i : res) {
     for (auto j : i)
