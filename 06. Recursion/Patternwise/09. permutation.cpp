@@ -40,6 +40,7 @@ void backtrack(vector<vector<int>>& res, vector<int>& arr, int index = 0) {
     swap(arr[index], arr[i]);
   }
 }
+
 vector<vector<int>> permute(vector<int> arr) {
   int n = arr.size();
   vector<vector<int>> res;
