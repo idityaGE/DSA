@@ -41,7 +41,7 @@ int BinaryToDecimal(string s) {
 //    x << k == x * pow(2, k);
 
 // NOT --> ~
-
+// 0 -> 1, 1 -> 2
 
 int main() {
   cout << DecimalToBinary(13);
