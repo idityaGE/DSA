@@ -41,6 +41,10 @@ int removeLastSetBit(int n) {
   return n & (n - 1);
 }
 
+int setLastUnsetBit(int n) {
+  return n | (n + 1);
+}
+
 // check if numbers is power 2 or not
 // trick - observe its binary will have only one 1's bit
 // n = 32 = 100000, n = 16 = 10000
