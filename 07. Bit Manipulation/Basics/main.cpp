@@ -20,7 +20,7 @@ int BinaryToDecimal(string s) {
   int len = s.length();
   int binary = stoi(s);
   for (int i = len - 1; i >= 0; i--) {
-    ans += (binary % 10) * pow(2, len - i - 1);
+    ans += (binary % 10) * (1 << (len - i - 1));
     binary /= 10;
   }
   return ans;
