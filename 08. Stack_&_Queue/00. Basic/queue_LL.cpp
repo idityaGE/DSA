@@ -29,7 +29,7 @@ class Queue {
   // Enqueue an element
   void enqueue(int val) {
     Node *newNode = new Node(val);
-    if (rear == nullptr) { // Queue is empty
+    if (rear == nullptr) {  // Queue is empty
       front = rear = newNode;
     } else {
       rear->next = newNode;
@@ -39,13 +39,13 @@ class Queue {
 
   // Dequeue an element
   int dequeue() {
-    if (front == nullptr) { // Queue is empty
+    if (front == nullptr) {  // Queue is empty
       throw runtime_error("Queue is empty");
     }
     int value = front->data;
     Node *temp = front;
     front = front->next;
-    if (front == nullptr) { // Queue becomes empty after dequeue
+    if (front == nullptr) {  // Queue becomes empty after dequeue
       rear = nullptr;
     }
     delete temp;
