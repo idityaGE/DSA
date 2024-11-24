@@ -10,18 +10,15 @@ int priority(char ch) {
     case '^':
       return 3;
     case '*':
-      return 2;
     case '/':
       return 2;
     case '+':
-      return 1;
     case '-':
       return 1;
     default:
       return -1;
   }
 }
-
 string infixToPosfix(string s) {
   stack<char> st;
   string ans = "";
