@@ -36,3 +36,15 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 ---
 
 Happy coding! 🚀
+
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Array
+|  |
+| ------- |
+| [0035-search-insert-position](https://github.com/idityaGE/DSA/tree/master/0035-search-insert-position) |
+## Binary Search
+|  |
+| ------- |
+| [0035-search-insert-position](https://github.com/idityaGE/DSA/tree/master/0035-search-insert-position) |
+<!---LeetCode Topics End-->
