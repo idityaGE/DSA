@@ -14,10 +14,8 @@ string postfixToPrefix(string s) {
       if (st.size() < 2) {
         return "Error: Invalid postfix expression";
       }
-      string t1 = st.top();
-      st.pop();
-      string t2 = st.top();
-      st.pop();
+      string t1 = st.top(); st.pop();
+      string t2 = st.top(); st.pop();
       string str = ch + t2 + t1;
       st.push(str);
     }

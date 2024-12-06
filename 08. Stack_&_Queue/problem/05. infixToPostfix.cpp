@@ -32,7 +32,7 @@ string infixToPosfix(string s) {
         ans += st.top();
         st.pop();
       }
-      st.pop();
+      if (!st.empty()) st.pop();
     } else {
       while (!st.empty() && priority(ch) <= priority(st.top())) {
         ans += st.top();

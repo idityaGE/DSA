@@ -19,10 +19,8 @@ string prefixToPostfix(string s) {
       }
 
       // Pop two operands
-      string t1 = st.top();
-      st.pop();
-      string t2 = st.top();
-      st.pop();
+      string t1 = st.top(); st.pop();
+      string t2 = st.top(); st.pop();
 
       // Form the postfix expression and push it back to the stack
       string str = t1 + t2 + ch;
